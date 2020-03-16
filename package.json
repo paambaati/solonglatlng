@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "heroku-postbuild": "echo Skip autobuilds on Heroku",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
