@@ -27,7 +27,10 @@ RUN yarn install --production && \
     yarn cache clean --force
 COPY --from=builder --chown=latlonger:latlongers /home/solonglatlong/ .
 
+# Remove sources.
+RUN rm -rf components/ pages/ utils/
+
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-ENTRYPOINT ["yarn", "run", "start"]
+CMD yarn run start
