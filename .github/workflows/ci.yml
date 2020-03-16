@@ -14,12 +14,12 @@ jobs:
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login 
-    - name: Build image and push
+    - name: Build Docker image and push to Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:push -a solonglatlng web
-    - name: Deploy image to Heroku
+    - name: Deploy image on Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        POST: 3000
+        PORT: 3000
       run: heroku container:release -a solonglatlng web
