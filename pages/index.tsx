@@ -86,8 +86,8 @@ const Index = (props/*: IndexProps*/) => {
         <div>
             <Head title="🔎 SoLongLatLong" />
             <nav className="flex items-center justify-between flex-wrap bg-purple-700 fixed shadow w-full" style={{ zIndex: 401 }}>
-                <div className="xs:hidden sm:hidden md:hidden lg:flex xl:flex items-center flex-shrink-0 text-white mt-3 mr-6 object-center">
-                    {loading ? <Spinner/> : <h1 className="flex-1 float-left pl-3 text-3xl">🔎</h1>}
+                <div className="hidden md:flex items-center flex-shrink-0 text-white mt-3 mr-6 object-center">
+                    {/* Empty flex shrink object to move items to right. */}
                 </div>
                 <div className="flex items-stretch">
                     <input className="flex-1 block m-2 bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 block w-full appearance-none leading-none" type="tel" placeholder="Latitude" value={latitude} onChange={e => setLatitude(e.target.value)} />
@@ -116,6 +116,7 @@ const Index = (props/*: IndexProps*/) => {
                 </div>
             }
             <div className="h-full w-fill pt-12">
+                { loading ? <Spinner color={'#6B46C1'} size={100} style={{position: 'absolute', top: '4rem', right: '-1rem', zIndex: 403}} /> : null }
                 <Map mapRef={mapRef} geoRef={geoRef} marker={marker} popup={popup} />
             </div>
         </div>
