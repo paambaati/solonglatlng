@@ -19,6 +19,10 @@ yarn install
 yarn run dev
 ```
 
+You can then access the app at http://localhost:3000
+
+This URL should return a valid search with the bundled GeoJSON — http://localhost:3000/?lat=80.1256269&lng=12.9262308
+
 ### 🐳 Docker Setup
 
 ```bash
@@ -28,7 +32,7 @@ docker run -p 3000:3000 -ti solonglatlng
 
 ## 🧩 Design
 
-The app is built on [Next.js](https://nextjs.org), [react-leaflet](https://react-leaflet.js.org/) and [stream-json](https://www.npmjs.com/package/stream-json).
+The app is built with [Next.js](https://nextjs.org), [react-leaflet](https://react-leaflet.js.org/) and [stream-json](https://www.npmjs.com/package/stream-json).
 
 Next.js is used to build the app on top of React.js and Next.js's built-in [SSR](https://nextjs.org/features/server-side-rendering)-powered API.
 
