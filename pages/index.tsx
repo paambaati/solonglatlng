@@ -86,7 +86,7 @@ const Index = (props/*: IndexProps*/) => {
         <div>
             <Head title="🔎 SoLongLatLong" />
             <nav className="flex items-center justify-between flex-wrap bg-purple-700 fixed shadow w-full" style={{ zIndex: 401 }}>
-                <div className="flex items-center flex-shrink-0 text-white mt-3 mr-6 object-center">
+                <div className="xs:hidden sm:hidden md:hidden lg:flex xl:flex items-center flex-shrink-0 text-white mt-3 mr-6 object-center">
                     {loading ? <Spinner/> : <h1 className="flex-1 float-left pl-3 text-3xl">🔎</h1>}
                 </div>
                 <div className="flex items-stretch">

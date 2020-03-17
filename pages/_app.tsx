@@ -7,6 +7,7 @@ import 'tailwindcss/dist/base.css';
 import 'tailwindcss/dist/components.css';
 import 'tailwindcss/dist/utilities.css';
 import 'leaflet/dist/leaflet.css';
+import '../styles/map.css';
 
 class SoLongLatLong extends App {
   render() {
