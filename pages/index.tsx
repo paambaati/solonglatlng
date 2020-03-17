@@ -84,7 +84,7 @@ const Index = (props/*: IndexProps*/) => {
 
     return (
         <div>
-            <Head title="🔎 SoLongLatLong" />
+            <Head title="SoLongLatLong" favicon={"/favicon.png"} />
             <nav className="flex items-center justify-between flex-wrap bg-purple-700 fixed shadow w-full" style={{ zIndex: 401 }}>
                 <div className="hidden md:flex items-center flex-shrink-0 text-white mt-3 mr-6 object-center">
                     {/* Empty flex shrink object to move items to right. */}
