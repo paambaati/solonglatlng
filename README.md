@@ -58,8 +58,13 @@ The CI/CD setup is straightforward.
 
 1. On every commit, [Github Actions](https://github.com/features/actions) is used to continually build the app, package it into a Docker image and push it to [Heroku's container registry](https://devcenter.heroku.com/articles/container-registry-and-runtime).
 
+    <[See CI pipeline](https://github.com/paambaati/solonglatlng/actions?query=workflow%3ACI)>
+
 2. On a `git tag` or a release, the latest image is deployed to Heroku and available at https://solonglatlng.herokuapp.com/
 
+    <[See CD pipeline](https://github.com/paambaati/solonglatlng/actions?query=workflow%3ACD)>
+
+On a production grade pipeline, we'll be tagging the Docker image with the `git` tag for traceability.
 
 ### 🕵 Missing Pieces & Gotchas.
 
