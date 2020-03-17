@@ -32,7 +32,7 @@ docker run -p 3000:3000 -ti solonglatlng
 
 ## 🧩 Design
 
-The app is built with [Next.js](https://nextjs.org), [react-leaflet](https://react-leaflet.js.org/) and [stream-json](https://www.npmjs.com/package/stream-json).
+The app is built with [Next.js](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), [react-leaflet](https://react-leaflet.js.org/) and [stream-json](https://www.npmjs.com/package/stream-json).
 
 Next.js is used to build the app on top of React.js and Next.js's built-in [SSR](https://nextjs.org/features/server-side-rendering)-powered API.
 
