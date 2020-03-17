@@ -1,0 +1,27 @@
+/* Custom overrides for Global Leaflet CSS. */
+.leaflet-container {
+	height: 100vh;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.leaflet-control-container {
+    top: 3rem;
+    position: relative;
+}
+
+@media (min-width: 603px) {
+    .leaflet-control-container {
+        top: -1rem;
+        position: relative;
+    }
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	top: 0.45rem;
+	right: 0.5rem;
+}
+
+.leaflet-top .leaflet-control {
+	margin-top: 3rem;
+}

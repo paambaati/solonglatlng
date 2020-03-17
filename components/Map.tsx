@@ -51,22 +51,6 @@ const Map = (props/*: MapProps*/) => {
           .map-root {
             height: 100%;
           }
-          .leaflet-container {
-            height: 100vh !important;
-            width: 100%;
-            margin: 0 auto;
-          }
-          .leaflet-control-container {
-            top: 3rem !important;
-            position: relative !important;
-          }
-          .leaflet-container a.leaflet-popup-close-button {
-            top: 0.45rem;
-            right: 0.5rem;
-          }
-          .leaflet-control-zoom {
-            margin-top: 2rem !important;
-          }
           .popup-title {
             font-size: 1rem;
             font-weight: 600;
@@ -94,7 +78,7 @@ const mapProps = PropTypes.shape({
 });
 
 Map.propTypes = mapProps;
-// type MapProps = PropTypes.InferProps<typeof mapProps>;
+type MapProps = PropTypes.InferProps<typeof mapProps>;
 
 Map.defaultProps = {
   center: [20.5937, 78.9629], // Nagpur, India's center.
