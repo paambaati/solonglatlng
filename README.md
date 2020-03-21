@@ -38,11 +38,13 @@ Next.js is used to build the app on top of React.js and Next.js's built-in [SSR]
 
 ### 🗺️ Map Operations
 
-The Map operations are kept intentionally simple.
+~~The Map operations are kept intentionally simple.~~
 
-1. The original GeoJSON is scanned linearly, so searches are `O(n)` complexity. For very large datasets, it is recommended to either run the queries on top of a [GIS](https://en.wikipedia.org/wiki/Geographic_information_system)-capable database like PostgreSQL or build a custom index on top of [`R` trees](https://en.wikipedia.org/wiki/R*_tree) or [`k-d` trees](https://en.wikipedia.org/wiki/K-d_tree).
+1. ~~The original GeoJSON is scanned linearly, so searches are `O(n)` complexity. For very large datasets, it is recommended to either run the queries on top of a [GIS](https://en.wikipedia.org/wiki/Geographic_information_system)-capable database like PostgreSQL or build a custom index on top of [`R` trees](https://en.wikipedia.org/wiki/R*_tree) or [`k-d` trees](https://en.wikipedia.org/wiki/K-d_tree).~~
 
-2. Instead of writing our own logic to find if a given polygon contains a point, I've used the D3 library's [`geoContains()`](https://github.com/d3/d3-geo#geoContains) method.
+2. ~~Instead of writing our own logic to find if a given polygon contains a point, I've used the D3 library's [`geoContains()`](https://github.com/d3/d3-geo#geoContains) method.~~
+
+[#2](/pull/2) now improves search performance dramatically!
 
 ### 🎨 UI
 
