@@ -76,7 +76,7 @@ On a production grade pipeline, we'll be tagging the Docker image with the `git`
 
 2. Search API will timeout in 30 seconds.
 
-    Heroku's free public dyno times out after 30 seconds, so any search API request that takes longer than that will timeout.
+    Heroku's free public dyno times out after 30 seconds, so any search API request that takes longer than that will timeout (although that shouldn't really happen after [#2](/pull/2)).
 
     For testing, you can use these 2 URLs —
 
