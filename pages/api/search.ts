@@ -34,6 +34,7 @@ export default async (req, res) => {
         if (err.code === 'ERR_INVALID_COORDINATES') {
             res.statusCode = 400;
         } else {
+            console.error(`Error looking up coordinates [${latitude}, ${longitude}]`, err);
             res.statusCode = 500;
         }
     }
