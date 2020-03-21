@@ -41,7 +41,7 @@ interface FeatureProperties {
 
 export default class GeoJSONLookup {
     private bBoxes = [];
-    private polygons = [];
+    private polygons: Feature[] = [];
     private polyId = 0;
     private rtree!: RBush<object>;
     /**
@@ -54,9 +54,9 @@ export default class GeoJSONLookup {
      * Reads a file as JSON.
      * @returns File content as JSON object.
      */
-    private readAsJSON(): Promise<object> {
+    private readAsJSON(filename?: string): Promise<object> {
         return new Promise((resolve, reject) => {
-            readFile(this.filename, (err, data) => {
+            readFile(filename || this.filename, (err, data) => {
                 if (err) return reject(err);
                 const json = JSON.parse(data.toString());
                 return resolve(json);
@@ -191,9 +191,12 @@ export default class GeoJSONLookup {
     public async index(): Promise<RBush<object>> {
         if (!this.rtree) {
             // Build index only once.
-            const geojson = <GeoJSON>await this.readAsJSON();
+            let geojson = <GeoJSON>await this.readAsJSON();
             geojson.features.forEach(_ => this.indexFeature(_));
             this.rtree = <RBush<object>>new RBush().load(this.bBoxes);
+            // Now clear variables we no longer need.
+            this.bBoxes = undefined;
+            geojson = undefined;
         }
         return this.rtree;
     }
@@ -214,14 +217,14 @@ export default class GeoJSONLookup {
             maxY: longitude,
         });
 
-        // Enumerate over each matching polygon based on the searched bounding boxes
-        // and find the first intersecting polygon.
+        // Enumerate over each matching polygon based on the searched bounding boxes.
         const polygons = bBoxes.map((_, index) => {
             return this.polygons[bBoxes[index]['polyId']];
         });
 
-        return polygons.find(polyObj => {
-            return this.isPointInPolygonWithHoles(point, polyObj);
+        // Find the first intersecting polygon.
+        return polygons.find(polygon => {
+            return this.isPointInPolygonWithHoles(point, polygon);
         });
     }
 }
