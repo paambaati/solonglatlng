@@ -6,8 +6,8 @@
 }
 
 .leaflet-control-container {
-    top: 1rem;
-    position: relative;
+    top: 4rem;
+    position: absolute;
 }
 
 .leaflet-container a.leaflet-popup-close-button {
