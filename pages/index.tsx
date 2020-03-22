@@ -116,7 +116,7 @@ const Index = (props/*: IndexProps*/) => {
                 </div>
             }
             <div className="h-full w-fill pt-12">
-                { loading ? <Spinner color={'#6B46C1'} size={100} style={{position: 'absolute', top: '4rem', right: '-1rem', zIndex: 403}} /> : null }
+                { loading ? <Spinner color={'#6B46C1'} size={100} style={{position: 'absolute', top: '7rem', right: '-1rem', zIndex: 403}} /> : null }
                 <Map mapRef={mapRef} geoRef={geoRef} marker={marker} popup={popup} />
             </div>
         </div>
