@@ -67,8 +67,9 @@ export default class GeoJSONLookup {
                 contents += data;
             });
             reader.on('close', () => {
+                debug('Finished reading file, now parsing as JSON');
                 const json = JSON.parse(contents);
-                debug('Finished reading file and parsing as JSON!');
+                debug('Finished parsing file content as JSON');
                 return resolve(json);
             });
         });
@@ -235,7 +236,7 @@ export default class GeoJSONLookup {
         const polygons = bBoxes.map((_, index) => {
             return this.polygons[bBoxes[index]['polyId']];
         });
-        debug(`Found ${polygons.length} matching polygons`);
+        debug(`Found ${polygons.length} matching polygons for ${point}`);
 
         // Find the first intersecting polygon.
         return polygons.find(polygon => {
