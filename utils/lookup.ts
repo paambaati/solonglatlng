@@ -1,5 +1,8 @@
 import { readFile } from 'fs';
 import RBush from 'rbush';
+import Debug from 'debug';
+
+const debug = Debug('solonglatlng:lookup');
 
 type Point = [number, number];
 type Polygon = Point[];
@@ -55,10 +58,13 @@ export default class GeoJSONLookup {
      * @returns File content as JSON object.
      */
     private readAsJSON(filename?: string): Promise<object> {
+        if (filename) this.filename = filename;
         return new Promise((resolve, reject) => {
-            readFile(filename || this.filename, (err, data) => {
+            debug('Reading file', this.filename);
+            readFile(this.filename, (err, data) => {
                 if (err) return reject(err);
                 const json = JSON.parse(data.toString());
+                debug('Finished reading file and parsing as JSON!');
                 return resolve(json);
             });
         });
@@ -190,10 +196,12 @@ export default class GeoJSONLookup {
      */
     public async index(): Promise<RBush<object>> {
         if (!this.rtree) {
+            debug('Building R-tree index');
             // Build index only once.
             let geojson = <GeoJSON>await this.readAsJSON();
             geojson.features.forEach(_ => this.indexFeature(_));
             this.rtree = <RBush<object>>new RBush().load(this.bBoxes);
+            debug('Done building R-tree index');
             // Now clear variables we no longer need.
             this.bBoxes = undefined;
             geojson = undefined;
@@ -209,6 +217,7 @@ export default class GeoJSONLookup {
      */
     public lookup(latitude: number, longitude: number): Feature | undefined {
         const point: Point = [latitude, longitude];
+        debug('Looking up coordinates', point);
 
         const bBoxes = this.rtree.search({
             minX: latitude,
@@ -216,14 +225,17 @@ export default class GeoJSONLookup {
             maxX: latitude,
             maxY: longitude,
         });
+        debug('R-tree search completed');
 
         // Enumerate over each matching polygon based on the searched bounding boxes.
         const polygons = bBoxes.map((_, index) => {
             return this.polygons[bBoxes[index]['polyId']];
         });
+        debug(`Found ${polygons.length} matching polygons`);
 
         // Find the first intersecting polygon.
         return polygons.find(polygon => {
+            debug('Found exact match', polygon.properties);
             return this.isPointInPolygonWithHoles(point, polygon);
         });
     }
