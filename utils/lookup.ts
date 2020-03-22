@@ -1,4 +1,4 @@
-import { readFile } from 'fs';
+import { createReadStream } from 'fs';
 import RBush from 'rbush';
 import Debug from 'debug';
 
@@ -60,10 +60,14 @@ export default class GeoJSONLookup {
     private readAsJSON(filename?: string): Promise<object> {
         if (filename) this.filename = filename;
         return new Promise((resolve, reject) => {
+            let contents = '';
             debug('Reading file', this.filename);
-            readFile(this.filename, (err, data) => {
-                if (err) return reject(err);
-                const json = JSON.parse(data.toString());
+            const reader = createReadStream(this.filename);
+            reader.on('data', data => {
+                contents += data;
+            });
+            reader.on('close', () => {
+                const json = JSON.parse(contents);
                 debug('Finished reading file and parsing as JSON!');
                 return resolve(json);
             });
