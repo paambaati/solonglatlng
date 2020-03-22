@@ -1,6 +1,6 @@
 # solonglatlng
 
-![CI](https://github.com/paambaati/solonglatlng/workflows/CI/badge.svg) ![CD](https://github.com/paambaati/solonglatlng/workflows/CD/badge.svg) ![Docker](https://img.shields.io/docker/v/gpdocksthings/solonglatlng?sort=date)
+![CI](https://github.com/paambaati/solonglatlng/workflows/CI/badge.svg) ![CD](https://github.com/paambaati/solonglatlng/workflows/CD/badge.svg) [![Docker](https://img.shields.io/docker/v/gpdocksthings/solonglatlng?sort=date)](https://hub.docker.com/repository/docker/gpdocksthings/solonglatlng)
 
 A simple webapp that lets you search a coordinate on a GeoJSON layered on top of a Map view.
 
