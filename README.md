@@ -1,8 +1,15 @@
 # solonglatlng
 
-![CI](https://github.com/paambaati/solonglatlng/workflows/CI/badge.svg) ![CD](https://github.com/paambaati/solonglatlng/workflows/CD/badge.svg)
+![CI](https://github.com/paambaati/solonglatlng/workflows/CI/badge.svg) ![CD](https://github.com/paambaati/solonglatlng/workflows/CD/badge.svg) ![Docker](https://img.shields.io/docker/v/gpdocksthings/solonglatlng?sort=date)
 
 A simple webapp that lets you search a coordinate on a GeoJSON layered on top of a Map view.
+
+### 🚀 Quick-Start
+
+```bash
+docker pull gpdocksthings/solonglatlng
+docker run --init gpdocksthings/solonglatlng
+```
 
 ### 🛠️ Setup
 
@@ -83,4 +90,4 @@ On a production grade pipeline, we'll be tagging the Docker image with the `git`
     1. https://solonglatlng.herokuapp.com/?lat=77.2025745&lng=27.7811323 (matches first `Feature` in the GeoJSON).
     2. https://solonglatlng.herokuapp.com/?lat=73.1991148&lng=23.3492689 (matches after a few hundred `Feature`s).
 
-3. The original sample GeoJSON was > 200 MB, but [Github only allows checking in files under 100 MB](https://help.github.com/en/github/managing-large-files/conditions-for-large-files). To work around this, I've downsampled the GeoJSON to 2 locations and checked the file in, but when building the Docker image, I'm [downloading the original GeoJSON](https://github.com/paambaati/solonglatlng/blob/9178622b36437a9c9588fd2e9ee88fb02ee5e208/Dockerfile#L14) from a copy on my Dropbox.
+3. The original sample GeoJSON was > 200 MB, but [Github only allows checking in files under 100 MB](https://help.github.com/en/github/managing-large-files/conditions-for-large-files). To work around this, I've downsampled the GeoJSON to 2 locations and checked the file in, but when building the Docker image, I'm [downloading the original GeoJSON](https://github.com/paambaati/solonglatlng/blob/ddbd9660b39a93af08d48f4637c063bbe49fd3ee/Dockerfile#L14) from a copy on my Dropbox.
