@@ -10,8 +10,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN yarn install
 RUN yarn add --dev typescript @types/react @types/node
 RUN yarn run build
-#RUN curl -ssS -L https://www.dropbox.com/s/mgo8alw3f2c0v74/tambaram.geojson?dl=0 -o data/indiapostal.geojson
-RUN curl -ssS -L https://www.dropbox.com/s/wtme02vd41ucfpx/indiapostal.geojson?dl=0 -o data/indiapostal.geojson
+#RUN curl -ssS -L https://www.dropbox.com/s/mgo8alw3f2c0v74/tambaram.geojson?dl=1 -o data/indiapostal.geojson
+RUN curl -ssS -L https://www.dropbox.com/s/wtme02vd41ucfpx/indiapostal.geojson?dl=1 -o data/indiapostal.geojson
 
 # Stage 1
 # Copy built app from stage 0, install only runtime dependencies, and run app.
