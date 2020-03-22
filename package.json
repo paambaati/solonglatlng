@@ -4,7 +4,7 @@
   "description": "A simple map page that lets you search places in India",
   "main": "index.js",
   "scripts": {
-    "dev": "NEXT_TELEMETRY_DISABLED=1 next",
+    "dev": "NEXT_TELEMETRY_DISABLED=1 DEBUG=solonglatlng:* next",
     "build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "heroku-postbuild": "echo Skip autobuilds on Heroku",
     "start": "NEXT_TELEMETRY_DISABLED=1 next start -p ${PORT:-3000}",
@@ -15,6 +15,7 @@
   "author": "GP <me@httgp.com> (https://httgp.com)",
   "license": "WTFPL",
   "dependencies": {
+    "debug": "4.1.1",
     "isomorphic-unfetch": "3.0.0",
     "leaflet": "1.6.0",
     "next": "9.3.1",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "2.1.0",
+    "@types/debug": "4.1.5",
     "@types/node": "13.9.2",
     "@types/rbush": "3.0.0",
     "@types/react": "16.9.25",
