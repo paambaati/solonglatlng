@@ -4,6 +4,8 @@
 
 A simple webapp that lets you search a coordinate on a GeoJSON layered on top of a Map view.
 
+<small> 📣 Note that this project was purpose-built for a coding challenge (see [problem statement](PROBLEM-STATEMENT.md)).</small>
+
 ### 🚀 Quick-Start
 
 ```bash
